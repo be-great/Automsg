@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  django:
+    build:
+      context: ./backend
+    container_name: my-django-container
+    ports:
+      - "8000:8000"
+    depends_on:
+      - mysql
+
+  react:
+    build:
+      context: ./frontend
+    container_name: my-react-container
+    ports:
+      - "3000:3000"
+
+  mysql:
+    image: mysql:5.7
+    container_name: my-mysql-container
+    environment:
+      MYSQL_DATABASE: app_db
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
