@@ -1,0 +1,87 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.idea
+# Virtual environment
+venv/
+env/
+*.env/
+
+# Database
+#*.sqlite3
+#db.sqlite3
+
+# Static files
+/static/
+
+# Media files
+/media/
+
+# Local development settings
+*.pyc
+*.pyo
+
+# IDE settings
+.idea/
+
+# Compiled Python files
+*.pyc
+
+# Compiled translations
+locale/
+
+# Dependency directories
+bin/
+lib/
+include/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Python egg cache
+.pycache/
+
+# Logs and databases
+*.log
+*.sqlitedb
+
+# PyCharm files
+.idea/
+
+# User-specific files
+*.suo
+*.user
+*.suo
+*.user
+*.suo
+*.user
+*.suo
+*.user
+*.suo
+*.user
+
+# Windows directory config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code settings
+.vscode/
+
+# macOS system files
+.DS_Store
+
+# Windows thumbnail cache files
+Thumbs.db
+
+# Python Debugger files
+*.pid
+
+# Python env files
+.venv
+env/
