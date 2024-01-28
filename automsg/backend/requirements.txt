@@ -1,1 +1,11 @@
-Django==3.2
+asgiref==3.7.2
+Django==5.0.1
+django-cors-headers==4.3.1
+django-filter==23.5
+djangorestframework==3.14.0
+djangorestframework-simplejwt==5.3.1
+Markdown==3.5.2
+PyJWT==2.8.0
+pytz==2023.3.post1
+sqlparse==0.4.4
+whitenoise==6.6.0
