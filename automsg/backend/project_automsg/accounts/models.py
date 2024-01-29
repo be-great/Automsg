@@ -43,7 +43,7 @@ class AutoMsgUser(AbstractUser):
     date_joined = models.DateTimeField(auto_now_add=True)
     last_login = models.DateTimeField(auto_now=True)
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = ['first_name', "last_name"]
+    REQUIRED_FIELDS = ['first_name', "last_name", 'username']
     objects = AutoMsgUserManager()
 
     def __str__(self):
