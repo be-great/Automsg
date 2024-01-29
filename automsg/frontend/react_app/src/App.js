@@ -1,6 +1,7 @@
-import './App.css';
+// import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Button } from "react-bootstrap"
+import ScheduleList from './pages/ScheduleList';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
           Auto Message to WhatsApp and Discord
         </p>
         <Button>Submit</Button>
+
       </header>
     </div>
   );
