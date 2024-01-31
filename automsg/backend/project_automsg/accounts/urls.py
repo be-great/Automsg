@@ -13,7 +13,7 @@ urlpatterns = [
     path("change-password/<int:pk>", ChangePasswordView.as_view(), name="change-password"),
     path("update-profile/<int:pk>", UpdateProfileView.as_view(), name="update-profile"),
     path('login/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('login/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 ]
 
 urlpatterns += router.urls
