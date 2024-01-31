@@ -1,5 +1,5 @@
 # Use the official Node.js image as a base image
-FROM node:14
+FROM node:20.11.0
 
 # Set the working directory in the container
 WORKDIR /app/react_app
