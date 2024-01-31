@@ -9,9 +9,9 @@ venv/
 env/
 *.env/
 
-# Database
-#*.sqlite3
-#db.sqlite3
+Database
+*.sqlite3
+db.sqlite3
 
 # Static files
 /static/
@@ -85,3 +85,5 @@ Thumbs.db
 # Python env files
 .venv
 env/
+
+/db.sqlite3
