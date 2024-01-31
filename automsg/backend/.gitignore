@@ -49,6 +49,7 @@ dist/
 # Logs and databases
 *.log
 *.sqlitedb
+*/.sqlite3
 
 # PyCharm files
 .idea/

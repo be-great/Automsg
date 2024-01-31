@@ -5,7 +5,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework_simplejwt.tokens import RefreshToken
-
+from rest_framework.decorators import api_view
 from accounts.permisions import IsSuperuserOrReadOnly
 from accounts.serializers.accaountsSerializers import (
     RegisterSerializer,
@@ -14,7 +14,11 @@ from accounts.serializers.accaountsSerializers import (
     UserSerializer,
 )
 
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView,TokenVerifyView
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView,
+)
 from django.conf import settings
 
 User = get_user_model()
@@ -79,7 +83,6 @@ class CustomTokenRefreshView(TokenRefreshView):
         return response
 
 
-
 # for verification purposes if required
 class CustomTokenVerifyView(TokenVerifyView):
     def post(self, request, *args, **kwargs):
@@ -89,9 +92,6 @@ class CustomTokenVerifyView(TokenVerifyView):
             request.data["token"] = access_token
 
         return super().post(request, *args, **kwargs)
-
-
-
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -113,18 +113,24 @@ class RegisterView(generics.CreateAPIView):
 
 
 # logout endpoint
-class LogoutView(APIView):
-    permission_classes = (IsAuthenticated,)
 
-    def post(self, request):
-        try:
-            refresh_token = request.data["refresh_token"]
-            token = RefreshToken(refresh_token)
-            token.blacklist()
 
-            return Response(status=status.HTTP_205_RESET_CONTENT)
-        except Exception as e:
-            return Response(status=status.HTTP_400_BAD_REQUEST, data=str(e))
+@api_view(["POST"])
+def logout_view(request):
+    try:
+        refresh_token = request.COOKIES.get("refresh")
+        print(refresh_token)
+        token = RefreshToken(refresh_token)
+        token.blacklist()
+
+        response=Response(status=status.HTTP_205_RESET_CONTENT)
+        response.delete_cookie("access")
+        response.delete_cookie("refresh")
+        return response
+    except Exception as e:
+        print(e)
+        return Response(status=status.HTTP_400_BAD_REQUEST, data=str(e))
+
 
 
 class ChangePasswordView(generics.UpdateAPIView):
